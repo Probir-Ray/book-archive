@@ -35,7 +35,7 @@ const getBooks = books => {
         div.classList.add('col');
         div.innerHTML = `
         <div class="card border-info" style="min-width: 18rem;">
-            <div class="card-header bg-info text-white"><h4>Book Name: ${book.text[3]}</h4></div>
+            <div class="card-header bg-info text-white"><h4>Book Name: ${book.title}</h4></div>
             <img height="250" src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top" alt="...">
             <div class="card-body text-secondary">
                 <h5 class="card-title">Author: ${book.author_name ? book.author_name : 'No author found'}</h5>
