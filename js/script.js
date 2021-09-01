@@ -3,7 +3,7 @@
 const error = document.getElementById('error');
 
 const fetchData = () => {
-    const searchText = document.getElementById('search-box').value;
+    let searchText = document.getElementById('search-box').value;
     error.style.display = 'none';
 
     if(searchText) {
@@ -17,6 +17,7 @@ const fetchData = () => {
         document.getElementById('book-wrapper').innerText = '';
         document.getElementById('result-found').innerText = 'No';
     }
+    searchText = '';
 }
 
 fetchData();
@@ -33,14 +34,14 @@ const getBooks = books => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
-        <div class="card border-info my-4" style="min-width: 18rem;">
-            <div class="card-header bg-info text-white"><h3>Book Name: </h3></div>
+        <div class="card border-info" style="min-width: 18rem;">
+            <div class="card-header bg-info text-white"><h4>Book Name: ${book.text[3]}</h4></div>
+            <img height="250" src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top" alt="...">
             <div class="card-body text-secondary">
-                <h5 class="card-title">Author: ${book.author_name ? book.author_name[0] : 'No author found'}</h5>
+                <h5 class="card-title">Author: ${book.author_name ? book.author_name : 'No author found'}</h5>
                 <h5>Publisher: ${book.publisher ? book.publisher : 'NA'}</h5>
                 <p class="card-text">First Published: 
                 ${book.first_publish_year ? book.first_publish_year : 'NA'}</p>
-                <a href="getBookPicture('${book.cover_i}')" class="btn btn-info">Cover Picture</a>
             </div>
         </div>            
         `;

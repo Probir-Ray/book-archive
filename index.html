@@ -12,7 +12,7 @@
 
   <body>
 
-    <div class="container">
+    <div class="container-fluid">
 
         <h1 class="text-center mt-4 text-info">Book Archive</h1>
 
@@ -30,21 +30,21 @@
 
         <!-- Error handling -->
         <section class="error-show">
-            <span class="bg-danger text-white text-center p-1 mx-auto" id="error"></span>
+            <span class="text-danger text-center p-1 mx-auto" id="error"></span>
         </section>
 
 
         <!-- Search Result showing -->
-        <section class="show-search">
-            <div class="row row-cols-1 row-cols-md-2 g-4" id="book-wrapper">
-                    <!-- Query run here -->
-            </div>
+        <section class="show-search my-2">
+          <div class="row row-cols-1 row-cols-md-1 g-4 text-center">
+              <div class="col">
+                  <p class="d-block"><span class="d-inline-block mt-4" id="result-found"></span> result found</p>
+              </div>
+          </div>
 
-            <div class="row row-cols-1 row-cols-md-1 g-4 text-center">
-                <div class="col">
-                    <p class="d-block"><span class="d-inline-block mt-4" id="result-found"></span> result found</p>
-                </div>
-            </div>
+          <div class="row row-cols-1 row-cols-md-3 g-4" id="book-wrapper">
+                  <!-- Search Result Showing here -->
+          </div>
         </section>
 
 
