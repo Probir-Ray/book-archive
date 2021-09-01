@@ -1,23 +1,26 @@
 // Fetch data from server
 
 const error = document.getElementById('error');
+let searchInput = document.getElementById('search-box');
+const resultFound = document.getElementById('result-found');
+const bookWrapper = document.getElementById('book-wrapper');
 
 const fetchData = () => {
-    let searchText = document.getElementById('search-box').value;
     error.style.display = 'none';
+    const searchText = searchInput.value;
 
     if(searchText) {
-        const url = `http://openlibrary.org/search.json?q=${searchText}`;
+        const url = `https://openlibrary.org/search.json?q=${searchText}`;
         fetch(url)
             .then(res => res.json())
             .then(data => getBooks(data))
     } else {
         error.innerText = `Please type any book name`;
         error.style.display = 'block';
-        document.getElementById('book-wrapper').innerText = '';
-        document.getElementById('result-found').innerText = 'No';
+        bookWrapper.innerText = '';
+        resultFound.innerText = 'No';
     }
-    searchText = '';
+    searchInput.value = '';
 }
 
 fetchData();
@@ -25,12 +28,10 @@ fetchData();
 
 
 const getBooks = books => {
-    const bookWrapper = document.getElementById('book-wrapper');
     bookWrapper.innerText = '';
-    document.getElementById('result-found').innerText
-    console.log(books);
+
     books.docs.forEach(book => {
-        console.log(book);
+        
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
@@ -46,7 +47,8 @@ const getBooks = books => {
         </div>            
         `;
         bookWrapper.appendChild(div); 
+
     });
 
-    document.getElementById('result-found').innerText = books.num_found ? books.num_found : 'No';
+    resultFound.innerText = books.num_found ? books.num_found : 'No';
 }
