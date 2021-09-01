@@ -23,15 +23,15 @@ const fetchData = () => {
     searchInput.value = '';
 }
 
-fetchData();
+// fetchData();
 
 
 
 const getBooks = books => {
     bookWrapper.innerText = '';
+    console.log(books.docs.length);
 
     books.docs.forEach(book => {
-        
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
@@ -50,5 +50,6 @@ const getBooks = books => {
 
     });
 
-    resultFound.innerText = books.num_found ? books.num_found : 'No';
+    resultFound.innerText = books.docs.length ? books.docs.length : 'No';
+    
 }
