@@ -23,15 +23,31 @@
                 <input type="text" id="search-box" class="form-control" placeholder="Search Book" aria-label="Search Book" aria-describedby="button-addon2">
                 
                 <!-- Search Button -->
-                <button class="btn btn-outline-secondary" type="button" id="search-btn">Search Book</button>
+                <button onclick="fetchData()" class="btn btn-outline-secondary" type="button" id="search-btn">Search Book</button>
               </div>            
+        </section>
+
+
+        <!-- Error handling -->
+        <section class="error-show">
+            <span class="bg-danger text-white text-center p-1 mx-auto" id="error"></span>
         </section>
 
 
         <!-- Search Result showing -->
         <section class="show-search">
+            <div class="row row-cols-1 row-cols-md-2 g-4" id="book-wrapper">
+                    <!-- Query run here -->
+            </div>
 
+            <div class="row row-cols-1 row-cols-md-1 g-4 text-center">
+                <div class="col">
+                    <p><span id="result-found">no</span> result found</p>
+                </div>
+            </div>
         </section>
+
+
 
     </div>
 
