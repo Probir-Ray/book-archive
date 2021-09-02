@@ -1,10 +1,17 @@
-// Fetch data from server
+/********************
+ * JavaScript Code
+ * *****************/
 
+// Declare common variable
 const error = document.getElementById('error');
-let searchInput = document.getElementById('search-box');
+const searchInput = document.getElementById('search-box');
 const resultFound = document.getElementById('result-found');
 const bookWrapper = document.getElementById('book-wrapper');
+const searchResultCount = document.getElementById('result-count');
 
+searchResultCount.style.display = 'none';
+
+// Fetch data from server
 const fetchData = () => {
     error.style.display = 'none';
     const searchText = searchInput.value;
@@ -19,11 +26,10 @@ const fetchData = () => {
         error.style.display = 'block';
         bookWrapper.innerText = '';
         resultFound.innerText = 'No';
+        searchResultCount.style.display = 'block';
     }
     searchInput.value = '';
 }
-
-// fetchData();
 
 
 
@@ -31,6 +37,7 @@ const getBooks = books => {
     bookWrapper.innerText = '';
     console.log(books.docs.length);
 
+    // Loop for book searching.
     books.docs.forEach(book => {
         const div = document.createElement('div');
         div.classList.add('col');
@@ -46,6 +53,7 @@ const getBooks = books => {
             </div>
         </div>            
         `;
+
         bookWrapper.appendChild(div); 
 
     });
