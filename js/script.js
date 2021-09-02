@@ -53,6 +53,6 @@ const getBooks = books => {
 
     });
 
-    resultFound.innerText = books.docs.length ? books.docs.length : 'No';
+    resultFound.innerText = books.numFound ? books.numFound : 'No';
     
 }
