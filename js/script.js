@@ -7,9 +7,6 @@ const error = document.getElementById('error');
 const searchInput = document.getElementById('search-box');
 const resultFound = document.getElementById('result-found');
 const bookWrapper = document.getElementById('book-wrapper');
-const searchResultCount = document.getElementById('result-count');
-
-searchResultCount.style.display = 'none';
 
 // Fetch data from server
 const fetchData = () => {
@@ -26,7 +23,6 @@ const fetchData = () => {
         error.style.display = 'block';
         bookWrapper.innerText = '';
         resultFound.innerText = 'No';
-        searchResultCount.style.display = 'block';
     }
     searchInput.value = '';
 }
@@ -35,7 +31,6 @@ const fetchData = () => {
 
 const getBooks = books => {
     bookWrapper.innerText = '';
-    console.log(books.docs.length);
 
     // Loop for book searching.
     books.docs.forEach(book => {
